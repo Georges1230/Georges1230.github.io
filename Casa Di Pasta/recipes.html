@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Delicious Menu</title>
+      <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #005bb5;
+        }
+
+        .filter {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filter button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .filter button:hover {
+            background-color: #005bb5;
+        }
+
+        .recipe {
+            display: flex;
+            align-items: center;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .recipe-content {
+            padding: 15px;
+        }
+
+        .recipe-content h2 {
+            color: #0066cc;
+            margin: 0;
+        }
+
+        .recipe-content p {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #005bb5;
+        }
+button.place-order {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+
+
+  .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            background: none;
+            color: white;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 150px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<style>
+	  logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            background: none;
+            color: white;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 150px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Delicious Menu</div>
+       <nav>
+    <ul>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Options</a>
+            <div class="dropdown-menu">
+                <a href="contact.html">Contact</a>
+                <a href="location.html">Location</a>
+                <a href="join.html">Join Our Team</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+    </header>
+<div class="dropdown-menu">
+    <a href="contact.html">Contact</a>
+    <a href="location.html">Location</a>
+    <a href="join.html">Join Our Team</a>
+</div>
+    <main>
+        <h1>Welcome to Our Menu Page</h1>
+        <p>Explore our delicious offerings!</p>
+    </main>
+	</body>
+
+
+
+
+
+
+
+
+       
+
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for recipes...">
+            <button onclick="searchRecipes()">Search</button>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter">
+            <button onclick="filterRecipes('all')">All</button>
+            <button onclick="filterRecipes('italian')">Italian</button>
+            <button onclick="filterRecipes('dessert')">Dessert</button>
+            <button onclick="filterRecipes('salad')">Salad</button>
+	    <button onclick="filterRecipes('soft-drink')">Soft Drinks</button>
+        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place an Order</title>
+</head>
+<body>
+    <h1>Menu</h1>
+        <!-- Recipe List -->
+        <div id="recipesContainer">
+            <!-- Italian Recipes -->
+            <div class="recipe" data-category="italian">
+		<img src="Spaghetti Carbonara.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Spaghetti Carbonara</h2>
+                    <p>A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.</p>
+                    <p><strong>Ingredients:</strong> Spaghetti, eggs, pancetta, Parmesan cheese, black pepper.</p>
+		   <p><strong>Price:</strong> $15</p>
+                   <button onclick="addToOrder('Spaghetti Carbonara', 15)">Add to Order </button>
+			
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Lasagna.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Lasagna</h2>
+                    <p>A layered pasta dish with meat, cheese, and tomato sauce.</p>
+                    <p><strong>Ingredients:</strong> Lasagna noodles, beef, mozzarella, ricotta, tomato sauce.</p>
+		    <p><strong>Cost:</strong> $12.99</p>
+                   <button onclick="addToOrder('Lasagna', 12.99)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Margherita Pizza.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Margherita Pizza</h2>
+                    <p>A classic pizza with tomato, mozzarella, and fresh basil.</p>
+                    <p><strong>Ingredients:</strong> Pizza dough, tomato sauce, mozzarella, basil.</p>
+			<p><strong>Price:</strong> $10</p>
+                        <button onclick="addToOrder('Margherita Pizza', 10)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Risotto alla Milanese.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Risotto alla Milanese</h2>
+                    <p>A creamy rice dish flavored with saffron.</p>
+                    <p><strong>Ingredients:</strong> Arborio rice, saffron, butter, Parmesan cheese.</p>
+			<p><strong>Price:</strong> $20</p>
+                        <button onclick="addToOrder('Risotto alla Milanese', 20)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Fettuccine Alfredo.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Fettuccine Alfredo</h2>
+                    <p>A creamy pasta dish with butter, cream, and Parmesan cheese.</p>
+                    <p><strong>Ingredients:</strong> Fettuccine pasta, butter, cream, Parmesan cheese.</p>
+			<p><strong>Price:</strong> $13.99</p>
+                        <button onclick="addToOrder('Fettuccine Alfredo', 13.99)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Pasta Puttanesca.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Pasta Puttanesca</h2>
+                    <p>A flavorful pasta with anchovies, olives, capers, and garlic.</p>
+                    <p><strong>Ingredients:</strong> Pasta, anchovies, olives, capers, garlic, tomatoes.</p>
+			<p><strong>Price:</strong> $15</p>
+                        <button onclick="addToOrder('Pasta Puttanesca', 15)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Minestrone Soup.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Minestrone Soup</h2>
+                    <p>A hearty vegetable soup with beans and pasta.</p>
+                    <p><strong>Ingredients:</strong> Carrots, celery, beans, pasta, tomatoes, spinach.</p>
+			<p><strong>Price:</strong> $9</p>
+                        <button onclick="addToOrder('Minestrone Soup', 9)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Eggplant Parmesan.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Eggplant Parmesan</h2>
+                    <p>Fried eggplant layered with marinara sauce and mozzarella cheese.</p>
+                    <p><strong>Ingredients:</strong> Eggplant, marinara sauce, mozzarella, Parmesan cheese.</p>
+			<p><strong>Price:</strong> $6.99</p>
+                        <button onclick="addToOrder('Eggplant Parmesan', 6.99)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="italian">
+		<img src="Gnocchi with Pesto.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Gnocchi with Pesto</h2>
+                    <p>Potato gnocchi served with a fresh basil pesto sauce.</p>
+                    <p><strong>Ingredients:</strong> Gnocchi, basil, Parmesan cheese, olive oil, pine nuts.</p>
+			<p><strong>Price:</strong> $18</p>
+                       <button onclick="addToOrder('Gnocchi with Pesto', 18)">Add to Order</button>
+                </div>
+            </div>
+
+            <!-- Dessert Recipes -->
+            <div class="recipe" data-category="dessert">
+		<img src="chip.jpg"  width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Chocolate Chip Cookies</h2>
+                    <p>Soft and chewy cookies loaded with chocolate chips.</p>
+                    <p><strong>Ingredients:</strong> Butter, sugar, flour, chocolate chips, eggs.</p>
+			<p><strong>Price:</strong> $5</p>
+                        <button onclick="addToOrder('Chocolate Chip Cookies', 5)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Cheesecake.jpg"  width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Cheesecake</h2>
+                    <p>A rich dessert made with cream cheese on a graham cracker crust.</p>
+                    <p><strong>Ingredients:</strong> Cream cheese, sugar, eggs, graham crackers, butter.</p>
+			<p><strong>Price:</strong> $15</p>
+                        <button onclick="addToOrder('Cheesecake', 15)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Apple Pie.jpg" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Apple Pie</h2>
+                    <p>A classic dessert made with apples and a buttery pie crust.</p>
+                    <p><strong>Ingredients:</strong> Apples, sugar, butter, flour, cinnamon.</p>
+			<p><strong>Price:</strong> $10</p>
+                        <button onclick="addToOrder('Apple Pie', 10)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Lemon Meringue Pie.jpg" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Lemon Meringue Pie</h2>
+                    <p>A tangy lemon filling topped with a fluffy meringue.</p>
+                    <p><strong>Ingredients:</strong> Lemons, eggs, sugar, cornstarch, meringue.</p>
+			<p><strong>Price:</strong> $10</p>
+                       <button onclick="addToOrder('Lemon Meringue Pie', 10)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Brownies.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Brownies</h2>
+                    <p>Decadent chocolate brownies with a fudgy texture.</p>
+                    <p><strong>Ingredients:</strong> Chocolate, flour, eggs, sugar, butter.</p>
+			<p><strong>Price:</strong> $5</p>
+                       <button onclick="addToOrder('Brownies', 5)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Tiramisu.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Tiramisu</h2>
+                    <p>An Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                    <p><strong>Ingredients:</strong> Mascarpone cheese, coffee, ladyfingers, cocoa powder.</p>
+			<p><strong>Price:</strong> $5</p>
+                       <button onclick="addToOrder('Tiramisu', 5)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Chocolate Lava Cake.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Chocolate Lava Cake</h2>
+                    <p>Warm chocolate cake with a gooey center.</p>
+                    <p><strong>Ingredients:</strong> Chocolate, butter, eggs, sugar, flour.</p>
+			<p><strong>Price:</strong> $12</p>
+                       <button onclick="addToOrder('Chocolate Lava Cake', 12)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Panna Cotta.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Panna Cotta</h2>
+                    <p>A creamy Italian dessert often served with berries or caramel.</p>
+                    <p><strong>Ingredients:</strong> Cream, sugar, vanilla, gelatin.</p>
+			<p><strong>Price:</strong> $7</p>
+                       <button onclick="addToOrder('Panna Cotta', 7)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="dessert">
+		<img src="Macarons.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Macarons</h2>
+                    <p>French meringue-based cookies filled with buttercream or ganache.</p>
+                    <p><strong>Ingredients:</strong> Almond flour, egg whites, sugar, butter, vanilla.</p>
+			<p><strong>Price:</strong> $4.99</p>
+                       <button onclick="addToOrder('Macarons', 4.99)">Add to Order</button>
+                </div>
+            </div>
+
+            <!-- Salad Recipes -->
+            <div class="recipe" data-category="salad">
+		<img src="Caesar Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Caesar Salad</h2>
+                    <p>Fresh romaine lettuce tossed with Caesar dressing, croutons, and Parmesan cheese.</p>
+                    <p><strong>Ingredients:</strong> Romaine lettuce, Caesar dressing, croutons, Parmesan cheese.</p>
+			<p><strong>Price:</strong> $10</p>
+                       <button onclick="addToOrder('Caesar Salad', 10)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Greek Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Greek Salad</h2>
+                    <p>A vibrant salad with tomatoes, cucumbers, olives, feta cheese, and olive oil.</p>
+                    <p><strong>Ingredients:</strong> Tomatoes, cucumbers, olives, feta cheese, red onion.</p>
+			<p><strong>Price:</strong> $13</p>
+                       <button onclick="addToOrder('Greek Salad', 13)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Caprese Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Caprese Salad</h2>
+                    <p>Fresh mozzarella, basil, and tomatoes drizzled with balsamic glaze.</p>
+                    <p><strong>Ingredients:</strong> Fresh mozzarella, tomatoes, basil, balsamic vinegar.</p>
+			<p><strong>Price:</strong> $15</p>
+                       <button onclick="addToOrder('Caprese Salad', 15)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Cobb Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Cobb Salad</h2>
+                    <p>A salad with lettuce, bacon, chicken, avocado, egg, and blue cheese.</p>
+                    <p><strong>Ingredients:</strong> Chicken, avocado, bacon, blue cheese, lettuce.</p>
+			<p><strong>Price:</strong> $20</p>
+                       <button onclick="addToOrder('Cobb Salad', 20)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Spinach and Strawberry Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Spinach and Strawberry Salad</h2>
+                    <p>A refreshing salad with spinach, strawberries, and a balsamic vinaigrette.</p>
+                    <p><strong>Ingredients:</strong> Spinach, strawberries, balsamic vinaigrette.</p>
+			<p><strong>Price:</strong> $7</p>
+                        <button onclick="addToOrder('Spinach and Strawberry Salad', 7)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Quinoa Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Quinoa Salad</h2>
+                    <p>A protein-packed salad with quinoa, vegetables, and a lemon dressing.</p>
+                    <p><strong>Ingredients:</strong> Quinoa, cucumber, tomato, lemon dressing.</p>
+			<p><strong>Price:</strong> $10</p>
+                       <button onclick="addToOrder('Quinoa Salad', 10)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Arugula Salad with Pears and Walnuts.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Arugula Salad with Pears and Walnuts</h2>
+                    <p>A peppery arugula salad topped with pears, walnuts, and a honey vinaigrette.</p>
+                    <p><strong>Ingredients:</strong> Arugula, pears, walnuts, honey, vinaigrette.</p>
+			<p><strong>Price:</strong> $15</p>
+                       <button onclick="addToOrder('Arugula Salad with Pears and Walnuts', 15)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Chickpea Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Chickpea Salad</h2>
+                    <p>A healthy and filling salad with chickpeas, cucumbers, tomatoes, and feta cheese.</p>
+                    <p><strong>Ingredients:</strong> Chickpeas, cucumber, tomato, feta cheese, olive oil.</p>
+			<p><strong>Price:</strong> $7.5</p>
+                        <button onclick="addToOrder('Chickpea Salad', 7.5)">Add to Order</button>
+                </div>
+            </div>
+            <div class="recipe" data-category="salad">
+		<img src="Watermelon, Feta, and Mint Salad.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Watermelon, Feta, and Mint Salad</h2>
+                    <p>A refreshing summer salad with watermelon, feta, and fresh mint.</p>
+                    <p><strong>Ingredients:</strong> Watermelon, feta, mint, lime juice.</p>
+			<p><strong>Price:</strong> $20</p>
+                       <button onclick="addToOrder('Watermelon, Feta, and Mint Salad', 20)">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="recipe" data-category="salad">
+		<img src="Roasted Beet Salad with Goat Cheese.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Roasted Beet Salad with Goat Cheese</h2>
+                    <p>A salad with roasted beets, goat cheese, and a balsamic glaze.</p>
+                    <p><strong>Ingredients:</strong> Beets, goat cheese, spinach, balsamic glaze.</p>
+			<p><strong>Price:</strong> $6</p>
+                        <button onclick="addToOrder('Roasted Beet Salad with Goat Cheese', 6)">Add to Order</button>
+                </div>
+            </div>
+        </div>
+
+ <div class="recipe" data-category="soft-drink">
+		<img src="Lemonade.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Lemonade</h2>
+                    <p>Refreshing drink made with fresh lemons, water, and sugar.</p>
+                    <p><strong>Ingredients:</strong> Lemons, water, sugar.</p>
+			<p><strong>Price:</strong> $5</p>
+                        <button onclick="addToOrder('Lemonade', 5)">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="recipe" data-category="soft-drink">
+		<img src="Mango Smoothie.jpg" alt="Description of the image" width="200" height="150">
+
+                <div class="recipe-content">
+                    <h2>Mango Smoothie</h2>
+                    <p>A creamy smoothie made with ripe mangoes and yogurt.</p>
+                    <p><strong>Ingredients:</strong> Mangoes, yogurt, honey, ice.</p>
+			<p><strong>Price:</strong> $7</p>
+      			  <button onclick="addToOrder('Mango Smoothie', 7)">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="recipe" data-category="soft-drink">
+		<img src="Iced Tea.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Iced Tea</h2>
+                    <p>Chilled tea served with lemon and a touch of honey.</p>
+                    <p><strong>Ingredients:</strong> Tea bags, water, lemon, honey.</p>
+			<p><strong>Price:</strong> $5</p>
+                        <button onclick="addToOrder('Iced Tea', 5)">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="recipe" data-category="soft-drink">
+		<img src="Smoothie Bowl.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Smoothie Bowl</h2>
+                    <p>A delicious and healthy smoothie bowl topped with fruit and granola.</p>
+                    <p><strong>Ingredients:</strong> Bananas, berries, yogurt, granola.</p>
+                      <p><strong>Price:</strong> $15</p>
+                     <button onclick="addToOrder('Smoothie Bowl', 15)">Add to Order</button>
+                </div>
+            </div>
+
+            <div class="recipe" data-category="soft-drink">
+		<img src="Pineapple Juice.jpg" alt="Description of the image" width="200" height="150">
+                <div class="recipe-content">
+                    <h2>Pineapple Juice</h2>
+                    <p>Fresh and tropical pineapple juice.</p>
+                    <p><strong>Ingredients:</strong> Pineapple, water, sugar.</p>
+			<p><strong>Price:</strong> $7</p>
+                     <button onclick="addToOrder('Pineapple Juice', 7)">Add to Order</button>
+                </div>
+            </div>
+
+        <a href="welcome.html" class="back-button">Back to Welcome</a>
+    </div>
+
+  
+    <script>
+        // JavaScript for Search and Filter Functionality
+        function searchRecipes() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const recipes = document.querySelectorAll('.recipe');
+
+            recipes.forEach(recipe => {
+                const title = recipe.querySelector('h2').textContent.toLowerCase();
+                if (title.includes(input)) {
+                    recipe.style.display = 'flex';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            });
+        }
+
+        function filterRecipes(category) {
+            const recipes = document.querySelectorAll('.recipe');
+
+            recipes.forEach(recipe => {
+                if (category === 'all' || recipe.getAttribute('data-category') === category) {
+                    recipe.style.display = 'flex';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+ <h2>Your Order</h2>
+    <div id="order-summary">
+        <p>No items selected.</p>
+    </div>
+    <h3>Total: $<span id="total-cost">0</span></h3>
+    <button onclick="placeFinalOrder()">Place Order</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Order data
+        let order = [];
+        let totalCost = 0;
+
+        // Add item to order
+        function addToOrder(itemName, price) {
+            // Add item to order array
+            order.push({ name: itemName, price: price });
+            
+            // Update total cost
+            totalCost += price;
+
+            // Update order summary display
+            updateOrderSummary();
+        }
+
+        // Update order summary
+        function updateOrderSummary() {
+            const orderSummary = document.getElementById('order-summary');
+            if (order.length === 0) {
+                orderSummary.innerHTML = '<p>No items selected.</p>';
+            } else {
+                orderSummary.innerHTML = order
+                    .map(item => `<p>${item.name}: $${item.price}</p>`)
+                    .join('');
+            }
+
+            // Update total cost display
+            document.getElementById('total-cost').innerText = totalCost.toFixed(2);
+        }
+
+        // Place final order
+        function placeFinalOrder() {
+            if (order.length === 0) {
+                alert('Your order is empty!');
+            } else {
+                alert(`Thank you for your order! Total: $${totalCost.toFixed(2)}.`);
+                // Reset order and total cost
+                order = [];
+                totalCost = 0;
+                updateOrderSummary();
+            }
+        }
+    </script>
+  <footer>
+        <p>&copy; 2024 CASA DI PASTA. All Rights Reserved.</p>
+    </footer>
+
+</html>
+

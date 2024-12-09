@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('Delicious Food.jpg'); /* Replace with your image file */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #ff7f50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #e66a3f;
+        }
+
+        /* Carousel Container */
+        .carousel {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Images in the Carousel */
+        .carousel-image {
+            width: 100%;
+            display: none;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-image.visible {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-container">
+        <!-- Carousel -->
+        <div class="carousel">
+            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" class="carousel-image visible">
+            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" class="carousel-image">
+            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" class="carousel-image">
+        </div>
+
+        <h1>Welcome, Georges!</h1>
+        <p>You’ve successfully logged in. Get ready to explore our amazing recipes!</p>
+
+        <div class="button-container">
+            <a href="recipes.html" class="btn">Explore Recipes</a>
+            <a href="index.html" class="btn">Log Out</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Carousel
+        const images = document.querySelectorAll('.carousel-image');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('visible');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('visible');
+        }
+
+        // Change image every 3 seconds
+        setInterval(showNextImage, 3000);
+    </script>
+
+</body>
+</html>
